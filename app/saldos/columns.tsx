@@ -12,87 +12,112 @@ import { ColumnDef } from "@tanstack/react-table";
 }*/
 
 export type Saldos = {
-  codigo: string;
-  filial: string;
-  empresa: string;
+  produto: string;
   descricao: string;
+  b_o: string;
+  mat_med: string;
   fornecedor: string;
-  tributacao: string;
-  forecast: number;
-  vendido: number;
-  media: number;
-  estoque: number;
-  po_compas: number;
-  transferencias: number;
-  estoque_total: number;
-  CMV: number;
-  politica: number;
-  periodo: string;
+  comprador: string;
+  primeira_filial_rota: string;
+  filial_dest: string;
+  sigla_dest: string;
+  empresa_dest: string;
+  grupo_tributacao: string;
+  flag_tributacao: string;
+  rota: string;
+  codigo: string;
+  gui_semana_saida: string;
+  gui_semana_chegada: string;
+  modo_compra: string;
+  dia_sugerido_pedido: string;
+  qtd_comprada: number;
+  preco_total: number;
+  status: string;
 };
 
 export const columns: ColumnDef<Saldos>[] = [
   {
-    accessorKey: "codigo",
-    header: "codigo",
-  },
-  {
-    accessorKey: "filial",
-    header: "filial",
-  },
-  {
-    accessorKey: "empresa",
-    header: "empresa",
+    accessorKey: "produto",
+    header: "produto",
   },
   {
     accessorKey: "descricao",
-    header: "descricao",
+    header: "descricâo",
+  },
+  {
+    accessorKey: " b_o",
+    header: "BO",
+  },
+  {
+    accessorKey: "mat_med",
+    header: "mat_med",
   },
   {
     accessorKey: "fornecedor",
     header: "fornecedor",
   },
   {
-    accessorKey: "tributacao",
-    header: "tributacao",
+    accessorKey: "comprador",
+    header: "comprador",
   },
   {
-    accessorKey: "forecast",
-    header: "forecast",
+    accessorKey: "primeira_filial_rota",
+    header: "primeira_filial",
   },
   {
-    accessorKey: "vendido",
-    header: "vendido",
+    accessorKey: "filial_dest",
+    header: "filial_dest",
   },
   {
-    accessorKey: "media",
-    header: "media",
+    accessorKey: "sigla_dest",
+    header: "sigla_dest",
   },
   {
-    accessorKey: "estoque",
-    header: "estoque",
+    accessorKey: "empresa_dest",
+    header: "empresa_dest",
   },
   {
-    accessorKey: "po_compras",
-    header: "po_compras",
+    accessorKey: "grupo_tributacao",
+    header: "grupo_tributacao",
   },
   {
-    accessorKey: "transferencias",
-    header: "transferencias",
+    accessorKey: "flag_tributacao",
+    header: "flag_tributacao",
   },
   {
-    accessorKey: "estoque_total",
-    header: "estoque_total",
+    accessorKey: "rota",
+    header: "rota",
   },
   {
-    accessorKey: "CMV",
-    header: "CMV",
+    accessorKey: "codigo",
+    header: "codigo",
   },
   {
-    accessorKey: "politica",
-    header: "politica",
+    accessorKey: "gui_semana_saida",
+    header: "gui_semana_saida",
   },
   {
-    accessorKey: "periodo",
-    header: "periodo",
+    accessorKey: "gui_semana_chegada",
+    header: "gui_semana_chegada",
+  },
+  {
+    accessorKey: "modo_compra",
+    header: "modo_compra",
+  },
+  {
+    accessorKey: "dia_sugerido_pedido",
+    header: " dia_sugerido_pedido",
+  },
+  {
+    accessorKey: "qtd_comprada",
+    header: "qtd_comprada",
+  },
+  {
+    accessorKey: "preco_total",
+    header: "preco_total",
+  },
+  {
+    accessorKey: "status",
+    header: "status",
   },
 ];
