@@ -33,15 +33,17 @@ const data = [
 });*/
 
 export default function Home() {
-  return (
+  return (  
     <>
-      <div className="flex justify-center">
-        <h1>**************PAGINA INICIAL **** ****************</h1>;
+    <div className="flex justify-center flex-col m-4">
+      <div className="flex justify-center bg-zinc-800 h-10">
+        <h1>**************PAGINA INICIAL *******************</h1>;
       </div>
 
       <div className="flex mx-auto m-8">
         <DataTable columns={columns} data={data} />
       </div>
+    </div>
     </>
   );
 }
