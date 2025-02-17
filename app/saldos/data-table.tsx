@@ -8,6 +8,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   useReactTable,
+  getPaginationRowModel, //****** */
 } from "@tanstack/react-table";
 import { Input } from "../components/ui/input";
 
@@ -25,7 +26,7 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu'
+} from "../components/ui/dropdown-menu";
 import { Button } from "../components/ui/button";
 
 interface DataTableProps<TData, TValue> {
@@ -42,7 +43,7 @@ export function DataTable<TData, TValue>({
   );
 
   const [columnVisibility, setColumnVisibility] =
-  React.useState<VisibilityState>({})
+    React.useState<VisibilityState>({});
 
   const table = useReactTable({
     data,
@@ -50,6 +51,7 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(), //****** */
     onColumnVisibilityChange: setColumnVisibility,
     state: {
       columnFilters,
@@ -59,6 +61,28 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="rounded-md border">
+      {/************************************************* */}
+      <div className="flex items-center justify-start space-x-2 py-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
+      </div>
+
+      {/************************************************* */}
+
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter products..."
@@ -68,7 +92,7 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-         <DropdownMenu>
+        <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
               Columns
@@ -77,9 +101,7 @@ export function DataTable<TData, TValue>({
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter(
-                (column) => column.getCanHide()
-              )
+              .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
@@ -92,7 +114,7 @@ export function DataTable<TData, TValue>({
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
-                )
+                );
               })}
           </DropdownMenuContent>
         </DropdownMenu>
