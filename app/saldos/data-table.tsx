@@ -90,7 +90,25 @@ export function DataTable<TData, TValue>({
           onChange={(event) =>
             table.getColumn("produto")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-[200px] m-2"
+        />
+
+        <Input
+          placeholder="Filter labs..."
+          value={(table.getColumn("fornecedor")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("fornecedor")?.setFilterValue(event.target.value)
+          }
+          className="max-w-[200px] m-2"
+        />
+
+        <Input
+          placeholder="Filter comprador..."
+          value={(table.getColumn("comprador")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("comprador")?.setFilterValue(event.target.value)
+          }
+          className="max-w-[200px] m-2"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
