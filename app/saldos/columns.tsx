@@ -115,6 +115,11 @@ export const columns: ColumnDef<Saldos>[] = [
   {
     accessorKey: "preco_total",
     header: "preco_total",
+    cell: ({ row: { original: transaction } }) =>
+      new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(Number(transaction.preco_total)),
   },
   {
     accessorKey: "status",
