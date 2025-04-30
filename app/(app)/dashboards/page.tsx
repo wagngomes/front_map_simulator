@@ -1,7 +1,7 @@
 "use client"
 
-import { DataTable } from "./saldos/data-table";
-import { columns } from "./saldos/columns";
+import { DataTable } from "../saldos/data-table";
+import { columns } from "../saldos/columns";
 import { useEffect, useState } from "react";
 
 interface MapData {
@@ -28,26 +28,23 @@ interface MapData {
   status: string;
 }
 
-export default function Home() {
+export default function PaginaEntrada() {
 
-  const [data, setData] = useState<MapData[]>([]); // ou o tipo específico dos seus dados
+  const [data, setData] = useState<MapData[]>([])
 
-  // Função para buscar os dados
   async function fetchData() {
     try {
       const response = await fetch('http://localhost:3002/completeMap');
       const data = await response.json();
 
-      // Garantir que os dados sejam do tipo MapData[]
-      const typedData: MapData[] = data as MapData[]; // Type assertion (casting)
+  
+      const typedData: MapData[] = data as MapData[]
 
-      setData(typedData); // Atualiza o estado com os dados tipados
+      setData(typedData)
     } catch (error) {
-      console.error('Erro ao buscar dados:', error);
+      console.error('Erro ao buscar dados:', error)
     }
   }
-
-  // Chama a função fetchData quando o componente é montado
   useEffect(() => {
     fetchData();
   }, []);
@@ -58,7 +55,7 @@ export default function Home() {
     <>
     <div className="flex justify-center flex-col m-4">
       <div className="flex justify-center bg-zinc-800 h-10">
-        <h1>**************PAGINA INICIAL *******************</h1>;
+        <h1>MAPA DE COMPRAS</h1>;
       </div>
 
       <div className="flex mx-auto m-8">

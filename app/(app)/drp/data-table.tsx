@@ -64,6 +64,7 @@ export function DataTable<TData, TValue>({
       {/************************************************* */}
       <div className="flex items-center justify-start space-x-2 py-4">
         <Button
+          className="p-4 ml-4"
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
@@ -84,32 +85,7 @@ export function DataTable<TData, TValue>({
       {/************************************************* */}
 
       <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter products..."
-          value={(table.getColumn("produto")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("produto")?.setFilterValue(event.target.value)
-          }
-          className="max-w-[200px] m-2"
-        />
 
-        <Input
-          placeholder="Filter labs..."
-          value={(table.getColumn("fornecedor")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("fornecedor")?.setFilterValue(event.target.value)
-          }
-          className="max-w-[200px] m-2"
-        />
-
-        <Input
-          placeholder="Filter comprador..."
-          value={(table.getColumn("comprador")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("comprador")?.setFilterValue(event.target.value)
-          }
-          className="max-w-[200px] m-2"
-        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
